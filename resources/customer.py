@@ -1,8 +1,7 @@
-from queue import Empty
-import sqlite3
 from flask import jsonify
 from flask_jwt import JWT, jwt_required, current_identity
-from flask_restful import Api, Resource, reqparse, abort, fields, marshal_with
+from flask_restful import Resource, reqparse, abort, fields, marshal_with
+
 from models.customer import CustomerModel
 from db import db
 
@@ -32,7 +31,7 @@ class Customer(Resource):
     """
     Add a customer 
     """
-    @jwt_required()
+    #@jwt_required()
     def put(self, customer_id):
         args = customer_put_args.parse_args()
         result = CustomerModel.query.filter_by(id = customer_id).first()

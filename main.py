@@ -6,10 +6,9 @@ __author__ = "Ersin Akyuz"
 __email__ = "ersinakyuz.de@gmail.com"
 __description__ = "Python Rest API with Flask Sample"
 
-from flask import Flask, render_template, request
-from flask_jwt import JWT, jwt_required, current_identity
-from flask_restful import Api, Resource, reqparse, abort, marshal_with
-from flask_sqlalchemy import SQLAlchemy
+from flask import Flask
+from flask_jwt import JWT
+from flask_restful import Api
 
 from security import authenticate, identity
 from resources.customer import Customer, CustomerList

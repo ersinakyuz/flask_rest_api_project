@@ -1,18 +1,17 @@
 from db import db
 """
 This module contains sample basic user model
-
-TODO in a real-world application below fields can be added for user uniquity
-Firstname,
-Lastname,
-Address,
-Phone,
-E-Mail,
-etc.
-
 """
-
 class CustomerModel(db.Model):
+    """ Customer Model 
+    TODO in a real-world application below fields can be added for user uniquity
+        Firstname,
+        Lastname,
+        Address,
+        Phone,
+        E-Mail,
+        etc.
+    """ 
     id = db.Column(db.Integer, primary_key = True)
     name = db.Column(db.String(100), nullable = False)
     is_active = db.Column(db.Integer, nullable = False)
