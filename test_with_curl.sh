@@ -42,3 +42,30 @@ curl --location --request PUT 'http://127.0.0.1:5000/customer/2' \
 	"name":"John Doe",
     "is_active" : 1
 }'
+
+echo Billing the first customer 20 $
+curl --location --request PATCH 'http://127.0.0.1:5000/customer/1' \
+--header "Authorization: JWT ${TOKEN}" --header 'Content-Type: application/json' \
+--data-raw '{
+	"name":"Ersin Akyuz",
+ 	"is_active": 1, 
+ 	"bills": 20
+}'
+
+echo Deactivating the first customer
+curl --location --request PATCH 'http://127.0.0.1:5000/customer/1' \
+--header "Authorization: JWT ${TOKEN}" --header 'Content-Type: application/json' \
+--data-raw '{
+	"name":"Ersin Akyuz",
+	is_active": 0, 
+ 	"bills": 20
+}'
+
+echo Getting details of first customer 
+curl --location --request GET 'http://127.0.0.1:5000/customer/1' \
+--header "Authorization: JWT ${TOKEN}" --header 'Content-Type: application/json' \
+--data-raw '{
+	"name":"Ersin Akyuz",
+ 	"is_active": 0, 
+ 	"bills": 20
+}'

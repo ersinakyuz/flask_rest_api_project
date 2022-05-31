@@ -31,7 +31,7 @@ class Customer(Resource):
     """
     Add a customer 
     """
-    #@jwt_required()
+    @jwt_required()
     def put(self, customer_id):
         args = customer_put_args.parse_args()
         result = CustomerModel.query.filter_by(id = customer_id).first()
@@ -56,6 +56,9 @@ class Customer(Resource):
             abort(400, message = "Name is missing")
         if not result:
             abort(404, message = "ID does not exists")
+        """
+        TODO If the customer is already disabled, billing shouldn't work. 
+        """    
         customer = CustomerModel (id = customer_id, name = args['name'], is_active = args['is_active'], bills = args['bills'], )
         db.session.merge(customer)
         db.session.commit()
