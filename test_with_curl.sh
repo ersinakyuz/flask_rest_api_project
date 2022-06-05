@@ -57,8 +57,25 @@ curl --location --request PATCH 'http://127.0.0.1:5000/customer/1' \
 --header "Authorization: JWT ${TOKEN}" --header 'Content-Type: application/json' \
 --data-raw '{
 	"name":"Ersin Akyuz",
-	is_active": 0, 
+	"is_active": 0, 
  	"bills": 20
+}'
+
+echo Changing the customer name
+curl --location --request PATCH 'http://127.0.0.1:5000/customer/1' \
+--header "Authorization: JWT ${TOKEN}" --header 'Content-Type: application/json' \
+--data-raw '{
+	"name":"Ersin Akyuez",
+ 	"is_active": 0
+}'
+
+echo Billing the first customer 100 $
+curl --location --request PATCH 'http://127.0.0.1:5000/customer/1' \
+--header "Authorization: JWT ${TOKEN}" --header 'Content-Type: application/json' \
+--data-raw '{
+	"name":"Ersin Akyuz",
+ 	"is_active": 0, 
+ 	"bills": 100
 }'
 
 echo Getting details of first customer 

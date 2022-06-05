@@ -1,6 +1,7 @@
 from flask import jsonify
 from flask_jwt import JWT, jwt_required, current_identity
 from flask_restful import Resource, reqparse, abort, fields, marshal_with
+from numpy import empty
 
 from models.customer import CustomerModel
 from db import db
@@ -56,9 +57,8 @@ class Customer(Resource):
             abort(400, message = "Name is missing")
         if not result:
             abort(404, message = "ID does not exists")
-        """
-        TODO If the customer is already disabled, billing shouldn't work. 
-        """    
+        if ((result.is_active is 0) and (args['is_active'] != 1) and (args['bills'])):
+            abort(400, message = "Customer is disabled, please enable the customer before billing.")
         customer = CustomerModel (id = customer_id, name = args['name'], is_active = args['is_active'], bills = args['bills'], )
         db.session.merge(customer)
         db.session.commit()
