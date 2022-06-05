@@ -20,7 +20,7 @@ resource_fields = {
 
 
 class Customer(Resource):
-    #@jwt_required()
+    @jwt_required()
     @marshal_with(resource_fields)
     def get(self, customer_id):
         result = CustomerModel.query.filter_by(id = customer_id).first()
@@ -47,7 +47,7 @@ class Customer(Resource):
     """
     Modify the customer data with PATCH
     """
-    #@jwt_required()
+    @jwt_required()
     @marshal_with(resource_fields)
     def patch(self, customer_id):
         args = customer_put_args.parse_args()
@@ -68,14 +68,14 @@ class Customer(Resource):
     """
     Delete the customer 
     """
-    #@jwt_required()
+    @jwt_required()
     def delete(self, customer_id):
         del customers[customer_id]
         return '', 204
 
 
 class CustomerList(Resource):
-    #@jwt_required()
+    @jwt_required()
     def get(self):
         result = CustomerModel.query.all()
         if not result:
