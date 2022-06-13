@@ -3,6 +3,10 @@
 
 This project provides basic REST API functions on Python3
 
+Default Flask libraries has been used for the application. 
+
+
+
 ## API Reference
 
 #### To GET JWT Authentication Header
@@ -61,15 +65,8 @@ GET /customers/${id}
 | Header Key      | Type     | Description                                 |
 | :-------------  | :------- | :------------------------------------------ |
 | `Authorization` | `string` | **Required**. JWT Authorization Header      |
-## Deployment
 
-To deploy this project run
 
-```bash
-git clone git@github.com:ersinakyuz/flask_rest_api_project.git  
-./install.sh
-python3 main.py
-```
 
 
 ## Running Tests
@@ -81,12 +78,12 @@ test_with_curl.sh
 ```
 
 
-## Run Locally
+## Deployment & Run Locally
 
 Clone the project
 
 ```bash
-  git clone https://link-to-project
+  git clone git@github.com:ersinakyuz/flask_rest_api_project.git
 ```
 
 Go to the project directory
@@ -98,23 +95,12 @@ Go to the project directory
 Install dependencies
 
 ```bash
-  npm install
+  ./install.sh
 ```
 
 Start the server
 
 ```bash
-  npm run start
-```
-
-
-## Usage/Examples
-
-```javascript
-import Component from 'my-project'
-
-function App() {
-  return <Component />
-}
+  python main
 ```
 
