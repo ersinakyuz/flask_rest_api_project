@@ -6,7 +6,11 @@ This project provides basic REST API functions on Python3
 Default Flask libraries has been used for the application. 
 
 
+## 🔗 Link to Repository
+[[Flask Rest API Project]](https://github.com/ersinakyuz/flask_rest_api_project/)
 
+Ersin Akyüz
+ersinakyuz.de@gmail.com
 ## API Reference
 
 #### To GET JWT Authentication Header
